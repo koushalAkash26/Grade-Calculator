@@ -22,8 +22,8 @@
         <h5 class="sub">SGPA CALCULATOR</h5>
         <div class="row">
             <div class="col-8"><label for="noofSub">Number of subjects</label></div>
-            <div class="col-4">
-              <select class="form-control" id="noofSub">
+            <div class="col-4" >
+              <select class="form-control "  id="noofSub">
                 <option value="1">1</option>
                 <option value="2">2</option>
                 <option value="3">3</option>
@@ -36,14 +36,32 @@
             </div>
           </div>
           <div class="row">
-            <div class="col-8"><label for="dept">Enter your Department</label></div>
-            <div class="col-4">
-              <select class="form-control" id="dept">
-                <option value="ISE">ISE</option>
-                <option value="CSE">CSE</option>
-                <option value="IT">IT</option>
-                <option value="ECE">ECE</option>
+            <div class="col-8 label"><label for="dept" ">Enter your Department</label></div>
+            <div class="col-4" >
+              
+              <select  class="form-control"   id="dept">
+                <option  value="ISE">ISE</option>
+                <option  value="CSE">CSE</option>
+                <option  value="IT">IT</option>
+                <option  value="ECE">ECE</option>
                 <option value="other">other</option>
+              </select>
+            
+
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-8"><label for="semester">Semester</label></div>
+            <div class="col-4">
+              <select class="form-control" id="semester">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
               </select>
             </div>
           </div>
@@ -54,7 +72,33 @@
             
           </div>
           <div id="box1"></div>
+          <h5 class="sub">CGPA CALCULATOR</h5>
+        <div class="row">
+            <div class="col-8"><label for="semcompleted">Number of sem completed</label></div>
+            <div class="col-4" >
+              <select class="form-control "  id="semcompleted">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+              </select>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-12">
+                <button id="thirdButtton" type="submit" class="btn btn-primary mb-4">calculate</button>
+            </div>
+
         </div>
+        <div class="row">
+          <div class="col-12" id="box2"></div>
+        </div>
+        
+
     </div>
     
 
