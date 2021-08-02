@@ -5,7 +5,7 @@ function getCGPA(totalComSub){
   for (let i = 0; i < totalComSub; i++) {
     let val = collectorSgpa[i].value;
     console.log(`datatype=>${typeof(val)}`)
-    var letters = /^[0-9,.]*$/;
+    var letters = /^[0-9.]*$/;
     if (val == '') {
       showAlertInvalid('Every field must to be filled');
       flag = false;
@@ -49,6 +49,15 @@ function showAlertInvalid(str) {
     document.getElementById('alert-own').innerHTML = '';
   }, 4000);
 }
+function localStore() {
+  console.log("rakita rakita")
+  const sgpaBox = document.querySelectorAll('.sem-sgpa');
+  console.log(localStorage.getItem(2))
+  for (let i = 0; i < sgpaBox.length; i++) {
+    console.log(`the local store value =>${sgpaBox[i]}`)
+    sgpaBox[i].value = localStorage.getItem(i + 1);
+  }
+}
   
 
 function roundToTwo(num) {
@@ -77,7 +86,7 @@ function renderSub(sem) {
     </div>`;
     for (let i = 1; i <= sem; i++) {
       html += `<div class="row">
-    <div class="col-8"><input class="form-control sem-sgpa" type="text" value="" inputmode="text"  /></div>
+    <div class="col-8"><input class="form-control " type="text" value="" inputmode="text"  /></div>
     <div class="col-2 ">
       
       <select class="form-control sub-sgpac" >
@@ -106,6 +115,7 @@ function renderSub(sem) {
     html +=
       '<div id="alert-own"></div><button type="button" id="second" class="btn btn-secondary btn-sm btn-block all-button mb-4" >Calculate SGPA</button><div><div id="result"></div>';
     html += `</div>`;
+    window.scrollTo(0, document.body.scrollHeight/5 );
     document.getElementById('box1').innerHTML = html;
   }
   function getSGPA(totalSemesters) {
@@ -129,11 +139,17 @@ function renderSub(sem) {
     console.log(`Grade=>${arSGPAG}`)
      let tc=arSGPAC.reduce((a, b) => a + b, 0)
      let resSgpa=getResult(arSGPAC,arSGPAG,tc)
+     let sem=document.getElementById("semester").value
+     console.log(sem)
+     console.log(typeof(sem))
+     localStorage.setItem(sem,resSgpa)
+     localStore()
      const result = document.getElementById('result');
       result.innerHTML = `<div class="alert alert-primary" role="alert" id="result">
       Semester Grade Point Average (SGPA) is
       <span class="alert-link">${resSgpa}</span>
     </div>`;
+    window.scrollTo(0, document.body.scrollHeight /5);
 }
   var fb=document.getElementById("firstButtton");
   console.log(fb)
@@ -176,10 +192,16 @@ function renderSub(sem) {
     '<div id="alert-own"></div><button type="button" class="btn btn-secondary btn-sm btn-block all-button mb-4" id="fourthButton">Calculate CGPA</button><div><div id="result1"></div>';
   html += `</div>`;
   document.getElementById('box2').innerHTML = html;
+  window.scrollTo(0, document.body.scrollHeight );
+  localStore()
   document.getElementById("fourthButton").addEventListener('click',()=>{
     let compSem=document.getElementById("semcompleted").value
     getCGPA(compSem)
+    window.scrollTo(0, document.body.scrollHeight );
     
   })
 
 })
+for(let i=0;i<8;i++){
+  localStorage.removeItem(i);
+}
