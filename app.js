@@ -121,6 +121,7 @@ function renderSub(sem) {
     document.getElementById('box1').innerHTML = html;
   }
   function renderSub2(data){
+    box1.innerHTML=""
     let html = `
     <div class="row">
       <div class="col-8 head">Subject</div>
@@ -237,6 +238,7 @@ function getSGPA2(data){
   fb.addEventListener('click',()=>{
      if(document.getElementById("dept").value==="other"){
        console.log("nadakatum nadakattum")
+       document.getElementById('box1').innerHTML = "";
        let html=`<div class="row">
        <div class="col-8"><label for="noofSub">Number of subjects</label></div>
        <div class="col-4" >
@@ -260,6 +262,7 @@ function getSGPA2(data){
       let fob=document.getElementById("fifthButton")
       fob.addEventListener('click',()=>{
       let NoofSub=document.getElementById("noofSub").value;
+      document.getElementById('box1').innerHTML = "";
       renderSub(NoofSub);
       var sb=document.getElementById("second");
       console.log(sb)
@@ -279,6 +282,8 @@ function getSGPA2(data){
 
      } 
      else{
+      document.getElementById('box1').innerHTML = "";
+      document.getElementById('box3').innerHTML = "";
       let deptTrial=document.getElementById('dept').value
       let regulation=document.getElementById('regulation').value
       let semester=document.getElementById('semester').value
