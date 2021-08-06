@@ -46,10 +46,13 @@ input[type='number'],
     width:100%;
     background-color: rgb(2,16,80);
 }
-.valCenter {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  
+
+select{
+  text-align: justify;
+  text-align-last: center;
+}
+@media only screen and (max-width: 400px){
+  *{
+    font-size: 13px;
+  }
 }

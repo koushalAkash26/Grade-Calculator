@@ -43,10 +43,10 @@ function showAlertInvalid(str) {
   let html = `<div class="alert alert-danger">
   <strong>${str}</strong>
 </div>`;
-  document.getElementById('alert-own').innerHTML = html;
+  document.getElementById('alert-own-1').innerHTML = html;
   window.scrollTo(0, document.body.scrollHeight);
   setTimeout(() => {
-    document.getElementById('alert-own').innerHTML = '';
+    document.getElementById('alert-own-1').innerHTML = '';
   }, 4000);
 }
 function localStore() {
@@ -314,7 +314,7 @@ function getSGPA2(data){
       </div>`;
   }
   html +=
-    '<div id="alert-own"></div><button type="button" class="btn btn-secondary btn-sm btn-block all-button mb-4" id="fourthButton">Calculate CGPA</button><div><div id="result1"></div>';
+    '<div id="alert-own-1"></div><button type="button" class="btn btn-secondary btn-sm btn-block all-button mb-4" id="fourthButton">Calculate CGPA</button><div><div id="result1"></div>';
   html += `</div>`;
   document.getElementById('box2').innerHTML = html;
   window.scrollTo(0, document.body.scrollHeight );
