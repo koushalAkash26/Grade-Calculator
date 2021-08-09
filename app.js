@@ -36,6 +36,22 @@ function getCGPA(totalComSub){
     Cumulative Grade Point Average (CGPA) is
       <span class="alert-link">${CGPA}</span>
     </div>`;
+    document.getElementById('downloadcgpa').innerHTML=`<button type="button" id="download3" class="btn btn-secondary btn-sm btn-block all-button mb-4" >Download as PDF</button>`
+    let dd=document.getElementById("download3")
+    console.log(dd)
+    dd.addEventListener("click", () => {
+            const tempelate2 = this.document.getElementById("tempelate2");
+            //console.log(tempelate1);
+            //console.log(window);
+            var opt = {
+                margin: 0.5,
+                filename: 'SGPA-Result.pdf',
+                image: { type: 'jpeg', quality: 0.98 },
+                html2canvas: { scale: 2 },
+                jsPDF: { unit: 'in', format: 'letter', orientation: 'portrait' }
+            };
+            html2pdf().from(tempelate2).set(opt).save();
+        })
     
   }
 }
@@ -115,7 +131,7 @@ function renderSub(sem) {
   </div>`;
     }
     html +=
-      '<div id="alert-own"></div><button type="button" id="second" class="btn btn-secondary btn-sm btn-block all-button mb-4" >Calculate SGPA</button><div><div id="result-1"></div>';
+      '<div id="alert-own"></div><button type="button" id="second" class="btn btn-secondary btn-sm btn-block all-button mb-4" >Calculate SGPA</button><div><div id="result-1"></div> ';
     html += `</div>`;
     window.scrollTo(0, document.body.scrollHeight/5 );
     document.getElementById('box1').innerHTML = html;
@@ -196,6 +212,23 @@ function renderSub(sem) {
       Semester Grade Point Average (SGPA) is
       <span class="alert-link">${resSgpa}</span>
     </div>`;
+    const download = document.getElementById('download')
+    download.innerHTML=`<button type="button" id="download1" class="btn btn-secondary btn-sm btn-block all-button mb-4" >Download as PDF</button>`
+    let dd=document.getElementById("download1")
+    console.log(dd)
+    dd.addEventListener("click", () => {
+            const tempelate1 = this.document.getElementById("tempelate1");
+            //console.log(tempelate1);
+            //console.log(window);
+            var opt = {
+                margin: 0.5,
+                filename: 'SGPA-Result.pdf',
+                image: { type: 'jpeg', quality: 0.98 },
+                html2canvas: { scale: 2 },
+                jsPDF: { unit: 'in', format: 'letter', orientation: 'portrait' }
+            };
+            html2pdf().from(tempelate1).set(opt).save();
+        })
     window.scrollTo(0, document.body.scrollHeight /5);
 }
 function getSGPA2(data){
@@ -229,6 +262,23 @@ function getSGPA2(data){
       Semester Grade Point Average (SGPA) is
       <span class="alert-link">${resSgpa}</span>
     </div>`;
+    const download = document.getElementById('download')
+    download.innerHTML=`<button type="button" id="download2" class="btn btn-secondary btn-sm btn-block all-button mb-4" >Download as PDF</button>`
+    let dd=document.getElementById("download2")
+    console.log(dd)
+    dd.addEventListener("click", () => {
+            const tempelate1 = this.document.getElementById("tempelate1");
+            //console.log(tempelate1);
+            //console.log(window);
+            var opt = {
+                margin: 0.5,
+                filename: 'SGPA-Result.pdf',
+                image: { type: 'jpeg', quality: 0.98 },
+                html2canvas: { scale: 2 },
+                jsPDF: { unit: 'in', format: 'letter', orientation: 'portrait' }
+            };
+            html2pdf().from(tempelate1).set(opt).save();
+        })
     window.scrollTo(0, document.body.scrollHeight /5);
 
 }
@@ -236,6 +286,8 @@ function getSGPA2(data){
   var fb=document.getElementById("firstButtton");
   console.log(fb)
   fb.addEventListener('click',()=>{
+    document.getElementById('download').innerHTML = "";
+    document.getElementById('downloadcgpa').innerHTML = "";
      if(document.getElementById("dept").value==="other"){
        console.log("nadakatum nadakattum")
        document.getElementById('box1').innerHTML = "";
@@ -263,6 +315,7 @@ function getSGPA2(data){
       fob.addEventListener('click',()=>{
       let NoofSub=document.getElementById("noofSub").value;
       document.getElementById('box1').innerHTML = "";
+      document.getElementById('box3').innerHTML = "";
       renderSub(NoofSub);
       var sb=document.getElementById("second");
       console.log(sb)
@@ -303,6 +356,8 @@ function getSGPA2(data){
   var tb=document.getElementById("thirdButtton");
   console.log(tb)
   tb.addEventListener('click',()=>{
+    document.getElementById('download').innerHTML = "";
+    document.getElementById('downloadcgpa').innerHTML = "";
     let html=`<div class="row">
     <div class="col-8">Semester</div>
     <div class="col-4">SGPA</div>
@@ -327,6 +382,7 @@ function getSGPA2(data){
   document.getElementById("fourthButton").addEventListener('click',()=>{
     let compSem=document.getElementById("semcompleted").value
     getCGPA(compSem)
+
     window.scrollTo(0, document.body.scrollHeight );
     
   })
